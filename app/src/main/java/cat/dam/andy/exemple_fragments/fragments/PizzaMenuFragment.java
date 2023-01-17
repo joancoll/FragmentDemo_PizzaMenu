@@ -1,4 +1,4 @@
-package com.codepath.mypizza.fragments;
+package cat.dam.andy.exemple_fragments.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,12 +11,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.codepath.mypizza.R;
-import com.codepath.mypizza.data.Pizza;
+import cat.dam.andy.exemple_fragments.R;
+import cat.dam.andy.exemple_fragments.data.Pizza;
 
-/**
- * Created by Shyam Rokde on 8/5/16.
- */
 public class PizzaMenuFragment extends Fragment {
 
 
@@ -41,12 +38,9 @@ public class PizzaMenuFragment extends Fragment {
     ListView lvItems = (ListView) view.findViewById(R.id.lvItems);
     lvItems.setAdapter(itemsAdapter);
 
-    lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-      @Override
-      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // go to activity to load pizza details fragment
-        listener.onPizzaItemSelected(position); // (3) Communicate with Activity using Listener
-      }
+    lvItems.setOnItemClickListener((parent, view1, position, id) -> {
+      // go to activity to load pizza details fragment
+      listener.onPizzaItemSelected(position); // (3) Communicate with Activity using Listener
     });
   }
 

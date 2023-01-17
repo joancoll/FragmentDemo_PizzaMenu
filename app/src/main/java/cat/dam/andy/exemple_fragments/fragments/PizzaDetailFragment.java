@@ -1,4 +1,4 @@
-package com.codepath.mypizza.fragments;
+package cat.dam.andy.exemple_fragments.fragments;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -8,12 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.codepath.mypizza.R;
-import com.codepath.mypizza.data.Pizza;
+import cat.dam.andy.exemple_fragments.R;
+import cat.dam.andy.exemple_fragments.data.Pizza;
 
-/**
- * Created by Shyam Rokde on 8/5/16.
- */
 public class PizzaDetailFragment extends Fragment {
   int position = 0;
   TextView tvTitle;

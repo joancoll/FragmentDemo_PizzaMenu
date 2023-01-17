@@ -1,4 +1,4 @@
-package com.codepath.mypizza;
+package cat.dam.andy.exemple_fragments;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.codepath.mypizza.fragments.PizzaDetailFragment;
-import com.codepath.mypizza.fragments.PizzaMenuFragment;
+import cat.dam.andy.exemple_fragments.fragments.PizzaDetailFragment;
+import cat.dam.andy.exemple_fragments.fragments.PizzaMenuFragment;
 
 public class MainActivity extends AppCompatActivity  implements PizzaMenuFragment.OnItemSelectedListener {
 
@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity  implements PizzaMenuFragmen
       // Instance of first fragment
       PizzaMenuFragment firstFragment = new PizzaMenuFragment();
 
-      // Add Fragment to FrameLayout (flContainer), using FragmentManager
+      // Add Fragment to FrameLayout (fl_menu), using FragmentManager
       FragmentTransaction ft = getSupportFragmentManager().beginTransaction();// begin  FragmentTransaction
-      ft.add(R.id.flContainer, firstFragment);                                // add    Fragment
+      ft.add(R.id.fl_pizzamenu, firstFragment);                                // add    Fragment
       ft.commit();                                                            // commit FragmentTransaction
     }
 
@@ -36,14 +36,14 @@ public class MainActivity extends AppCompatActivity  implements PizzaMenuFragmen
       args.putInt("position", 0);
       secondFragment.setArguments(args);          // (1) Communicate with Fragment using Bundle
       FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();// begin  FragmentTransaction
-      ft2.add(R.id.flContainer2, secondFragment);                               // add    Fragment
+      ft2.add(R.id.fl_pizzadetail, secondFragment);                               // add    Fragment
       ft2.commit();                                                            // commit FragmentTransaction
     }
   }
 
   @Override
   public void onPizzaItemSelected(int position) {
-    Toast.makeText(this, "Called By Fragment A: position - "+ position, Toast.LENGTH_SHORT).show();
+    Toast.makeText(this, "Called By Fragment A: position "+ position, Toast.LENGTH_SHORT).show();
 
     // Load Pizza Detail Fragment
     PizzaDetailFragment secondFragment = new PizzaDetailFragment();
@@ -56,13 +56,13 @@ public class MainActivity extends AppCompatActivity  implements PizzaMenuFragmen
     if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
       getSupportFragmentManager()
           .beginTransaction()
-          .replace(R.id.flContainer2, secondFragment) // replace flContainer
+          .replace(R.id.fl_pizzadetail, secondFragment) // replace flContainer
           //.addToBackStack(null)
           .commit();
     }else{
       getSupportFragmentManager()
           .beginTransaction()
-          .replace(R.id.flContainer, secondFragment) // replace flContainer
+          .replace(R.id.fl_pizzamenu, secondFragment) // replace flContainer
           .addToBackStack(null)
           .commit();
     }
